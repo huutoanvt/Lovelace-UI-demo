@@ -1,0 +1,997 @@
+resources:
+  - url: /local/custom-lovelace/custom_ui/weather-card.js
+    type: js
+  - url: /local/custom-lovelace/card-tools.js
+    type: js
+  - url: /local/custom-lovelace/card-modder.js
+    type: js
+  - url: /local/custom-lovelace/simple-weather-card.bundle.js?v=0.2.0
+    type: module
+  - url: /local/custom-lovelace/button-card.js
+    type: module
+title: PM Home
+views:
+  - badges: []
+    icon: 'mdi:home'
+    background: center / cover no-repeat url("/local/home.jpg") fixed
+    path: 'home'
+    title: Home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(255,255,255,0.1)
+                  color: rgb(255, 255, 255)
+                card:
+                  type: picture
+                  image: /local/light.jpg
+                  aspect_ratio: 16:9
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/light
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(255,255,255,0.1)
+                  color: rgb(255, 255, 255)
+                card:
+                  type: picture
+                  image: /local/5720.jpg
+                  aspect_ratio: 16:9
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/weather
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(255,255,255,0.1)
+                  color: rgb(255, 255, 255)
+                card:
+                  type: picture
+                  image: /local/remote.jpg
+                  aspect_ratio: 16:9
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/remote
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(255,255,255,0.1)
+                  color: rgb(255, 255, 255)
+                card:
+                  type: picture
+                  image: /local/music.jpg
+                  aspect_ratio: 16:9
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/music
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(255,255,255,0.1)
+                  color: rgb(255, 255, 255)
+                card:
+                  type: picture
+                  image: /local/camera.jpg
+                  aspect_ratio: 16:9
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/camera
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(255,255,255,0.1)
+                  color: rgb(255, 255, 255)
+                card:
+                  type: picture
+                  image: /local/system.jpg
+                  aspect_ratio: 16:9
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/system
+                    
+  - badges: []
+    icon: 'mdi:lightbulb-on-outline'
+    path: 'light'
+    background: center / cover no-repeat url("/local/bg_light.jpg") fixed
+    title: Light
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:card-modder
+            style:
+              background-color: rgba(0,0,0,0.1)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)
+            card:
+              type: markdown
+              content: >
+                ## PHÒNG KHÁCH
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+         #         box-shadow: 3px 3px rgba(0,0,0,0.6) 
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: switch.living_room_light
+                      name: Đèn trong
+                    - entity: switch.living_room_light
+                      name: Đèn ngoài
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+           #       box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity: sensor.dark_sky_temperature
+                      name: Nhiệt độ
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+          #        box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity:  sensor.dark_sky_humidity
+                      name: Độ ẩm
+          - type: custom:card-modder
+            style:
+              background-color: rgba(0,0,0,0.1)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)
+            card:
+              type: markdown
+              content: >
+                ## NHÀ BẾP
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+          #        box-shadow: 3px 3px rgba(0,0,0,0.6) 
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: switch.living_room_light
+                      name: Đèn trong
+                    - entity: switch.living_room_light
+                      name: Đèn ngoài
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+           #       box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity: sensor.dark_sky_temperature
+                      name: Nhiệt độ
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+         #         box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity:  sensor.dark_sky_humidity
+                      name: Độ ẩm
+          - type: custom:card-modder
+            style:
+              background-color: rgba(0,0,0,0.1)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)
+            card:
+              type: markdown
+              content: >
+                ## PHÒNG NGỦ
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 0% 0%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                 # box-shadow: 3px 3px rgba(0,0,0,0.6) 
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: switch.living_room_light
+                      name: Đèn trong
+                    - entity: switch.living_room_light
+                      name: Đèn ngoài
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+          #        box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity: sensor.dark_sky_temperature
+                      name: Nhiệt độ
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+           #       box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity:  sensor.dark_sky_humidity
+                      name: Độ ẩm
+          - type: custom:card-modder
+            style:
+              background-color: rgba(0,0,0,0)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)
+            card:
+              type: markdown
+              content: >
+                ## GA RA
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+             #     box-shadow: 3px 3px rgba(0,0,0,0.6) 
+                card:
+                  type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: switch.living_room_light
+                      name: Đèn trong
+                    - entity: switch.living_room_light
+                      name: Đèn ngoài
+          - type: horizontal-stack
+            cards:
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+            #      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity: sensor.dark_sky_temperature
+                      name: Nhiệt độ
+              - type: custom:card-modder
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+            #      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                card:
+                  type: glance
+                  show_name: true
+                  show_state: true
+                  entities:
+                    - entity:  sensor.dark_sky_humidity
+                      name: Độ ẩm
+          - type: 'custom:card-modder'
+            style:
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.40)'
+              height: 10px
+            card:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)         
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home    
+                  icon: 'mdi:arrow-left-bold'
+                  name: BACK
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home   
+                  icon: 'mdi:home'
+                  name: HOME
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  name: NEXT
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/weather
+                  icon: 'mdi:arrow-right-bold'
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:button-card'
+                color_type: blank-card
+  - badges: []
+    icon: 'mdi:weather-cloudy'
+    path: 'weather'
+    background: center / cover no-repeat url("/local/bg_weather.jpg") fixed
+    title: Weather
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:card-modder
+            style:
+              background-size: 100% 100%
+              border: solid 1px rgba(100,100,100,0.3)
+       #      box-shadow: 3px 3px rgba(0,0,0,0.6)
+            card:
+              type: custom:simple-weather-card
+              entity: weather.dark_sky
+              name: Ho Chi Minh
+              backdrop: true
+          - type: custom:card-modder
+            style:
+              background-image: url("/local/tt5.jpg")
+              background-repeat: no-repeat
+              background-color: rgba(0,0,0,0.3)
+              background-size: 100% 100%
+              border: solid 1px rgba(100,100,100,0.3)
+              color: rgb(0, 0, 0)
+            card:
+              type: custom:weather-card
+              entity: weather.dark_sky
+              icons: "/local/icons/weather_icons/animated/"
+      - type: vertical-stack
+        cards:
+          - type: custom:card-modder
+            style:
+              background-image: url("/local/tt5.jpg")
+              background-repeat: no-repeat
+              background-color: rgba(0,0,0,0.3)
+              background-size: 100% 100%
+              border: solid 1px rgba(100,100,100,0.3)
+              color: rgb(0, 0, 0)
+            card:
+              type: glance
+              show_name: true
+              show_state: true
+              columns: 2
+              entities:
+                - entity:   sensor.weathertoday
+                  tap_action: 
+                    action: more-info
+                  icon: mdi:cloud
+                  name: Thời tiết
+                - entity:  sensor.sun_state
+                  tap_action: 
+                    action: more-info
+                  name: Mặt trời
+                  icon: mdi:white-balance-sunny
+          - type: iframe
+            url: https://embed.windy.com/embed2.html
+            aspect_ratio: 55%
+            
+          - type: 'custom:card-modder'
+            style:
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.40)'
+              height: 10px
+            card:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)         
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/light    
+                  icon: 'mdi:arrow-left-bold'
+                  name: BACK
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home   
+                  icon: 'mdi:home'
+                  name: HOME
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  name: NEXT
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/remote
+                  icon: 'mdi:arrow-right-bold'
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:button-card'
+                color_type: blank-card
+  - badges: []
+    icon: 'mdi:remote'
+    path: 'remote'
+    background: center / cover no-repeat url("/local/bg_remote.jpg") fixed
+    title: Remote
+    cards:
+      - type: 'custom:card-modder'
+        style:
+          --paper-card-background-color: 'rgba(11, 11, 11, 0.40)'
+          height: 10px
+        card:
+      - type: horizontal-stack
+        cards:
+          - type: 'custom:button-card'
+            color_type: blank-card
+          - type: 'custom:card-modder'
+            style:
+              background-color: rgba(0,0,0,0.1)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)         
+            card:
+              entity: input_boolean.home
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/weather    
+              icon: 'mdi:arrow-left-bold'
+              name: BACK
+              type: entity-button
+              style:
+                - height: 85px
+                - text-transform: none
+                - font-size: 13px
+          - type: 'custom:card-modder'
+            style:
+              background-color: rgba(0,0,0,0.1)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)
+            card:
+              entity: input_boolean.home
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/home   
+              icon: 'mdi:home'
+              name: HOME
+              type: entity-button
+              style:
+                - height: 85px
+                - text-transform: none
+                - font-size: 13px
+          - type: 'custom:card-modder'
+            style:
+              background-color: rgba(0,0,0,0.1)
+              background-size: 50% 50%
+              --paper-item-icon-color: white
+              color: rgb(255, 255, 255)
+            card:
+              name: NEXT
+              entity: input_boolean.home
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/music
+              icon: 'mdi:arrow-right-bold'
+              type: entity-button
+              style:
+                - height: 85px
+                - text-transform: none
+                - font-size: 13px
+          - type: 'custom:button-card'
+            color_type: blank-card
+  - badges: []
+    icon: 'mdi:music'
+    path: 'music'
+    background: center / cover no-repeat url("/local/bg_ms.jpg") fixed
+    title: Music
+    cards:
+          - type: 'custom:card-modder'
+            style:
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.40)'
+              height: 10px
+            card:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)         
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/remote    
+                  icon: 'mdi:arrow-left-bold'
+                  name: BACK
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home   
+                  icon: 'mdi:home'
+                  name: HOME
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  name: NEXT
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/camera
+                  icon: 'mdi:arrow-right-bold'
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:button-card'
+                color_type: blank-card
+  - badges: []
+    icon: 'mdi:cctv'
+    path: 'camera'
+    background: center / cover no-repeat url("/local/bg_cttv.jpg") fixed
+    title: Camera
+    cards:
+          - type: 'custom:card-modder'
+            style:
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.40)'
+              height: 10px
+            card:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)         
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/music    
+                  icon: 'mdi:arrow-left-bold'
+                  name: BACK
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home   
+                  icon: 'mdi:home'
+                  name: HOME
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  name: NEXT
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/system
+                  icon: 'mdi:arrow-right-bold'
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:button-card'
+                color_type: blank-card
+  - badges: []
+    icon: 'mdi:server-minus'
+    path: 'system'
+    background: center / cover no-repeat url("/local/bg_system.jpg") fixed
+    title: System
+    cards:
+          - type: vertical-stack
+            cards:
+
+              - type: horizontal-stack
+                cards:
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.cpu_speed
+                          tap_action: 
+                            action: none
+                          name: Xung nhịp
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.processor_use
+                          tap_action: 
+                            action: none
+                          name: Tiến trình
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.current_version
+                          tap_action: 
+                            action: none
+                          name: Phiên bản
+              - type: horizontal-stack
+                cards:
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.disk_use_percent_home
+                          tap_action: 
+                            action: none
+                          name: Dung lượng
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.memory_free
+                          tap_action: 
+                            action: none
+                          name: Ram trống
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.memory_use
+                          tap_action: 
+                            action: none
+                          name: Ram dùng
+              - type: horizontal-stack
+                cards:
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:   sensor.speedtest_ping
+                          tap_action: 
+                            action: none
+                          name: Ping
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.speedtest_download
+                          tap_action: 
+                            action: none
+                          name: Tải xuống
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.speedtest_upload
+                          tap_action: 
+                            action: none
+                          name: Tải lên
+              - type: horizontal-stack
+                cards:
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  alarm_control_panel.home_alarm
+                          hold_action: 
+                            action: more-info
+                          tap_action: 
+                            action: none
+                          name: Cảnh báo
+                  - type: custom:card-modder
+                    style:
+                      background-color: rgba(0,0,0,0.2)
+                      background-size: 50% 50%
+                      --paper-item-icon-color: white
+                      color: rgb(255, 255, 255)
+                      box-shadow: 3px 3px rgba(0,0,0,0.6)
+                    card:
+                      type: glance
+                      show_name: true
+                      show_state: true
+                      entities:
+                        - entity:  sensor.time_online
+                          tap_action: 
+                            action: none
+                          name: Online
+          - type: 'custom:card-modder'
+            style:
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.40)'
+              height: 10px
+            card:
+          - type: horizontal-stack
+            cards:
+              - type: 'custom:button-card'
+                color_type: blank-card
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)         
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/camera    
+                  icon: 'mdi:arrow-left-bold'
+                  name: BACK
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/home   
+                  icon: 'mdi:home'
+                  name: HOME
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:card-modder'
+                style:
+                  background-color: rgba(0,0,0,0.1)
+                  background-size: 50% 50%
+                  --paper-item-icon-color: white
+                  color: rgb(255, 255, 255)
+                card:
+                  name: NEXT
+                  entity: input_boolean.home
+                  tap_action:
+                    action: navigate
+                    navigation_path: /lovelace/system
+                  icon: 'mdi:arrow-right-bold'
+                  type: entity-button
+                  style:
+                    - height: 85px
+                    - text-transform: none
+                    - font-size: 13px
+              - type: 'custom:button-card'
+                color_type: blank-card
